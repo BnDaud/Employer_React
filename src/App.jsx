@@ -1,5 +1,5 @@
 import { useState } from "react";
-import myimage from "./images/lion.jpg";
+import { v4 as uuidv4 } from "uuid";
 
 //import viteLogo from "/vite.svg";
 import "./App.css";
@@ -8,11 +8,13 @@ import Employer from "./component/employer";
 function App() {
   const [employers, setEmployers] = useState([
     {
+      id: uuidv4(),
       name: "Lawal",
       occupation: "Backend Developer",
       image: "https://i.imgur.com/NgqeSfh.png",
     },
     {
+      id: uuidv4(),
       name: "Dela",
       occupation: "Full Stack Developer",
       image:
@@ -20,18 +22,21 @@ function App() {
     },
 
     {
+      id: uuidv4(),
       name: "Esther",
       occupation: "Personnal Assistance",
       image:
         "https://i.pinimg.com/236x/52/22/87/522287f70ec07fa601925df2718d2982.jpg",
     },
     {
+      id: uuidv4(),
       name: "Tom",
       occupation: "Backend Developer",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBSwz9XEUHoM2qNS5DGdihbZNFLz3cHadAXA&s",
     },
     {
+      id: uuidv4(),
       name: "Aang",
       occupation: "Avatar",
       image:
@@ -39,18 +44,21 @@ function App() {
     },
 
     {
+      id: uuidv4(),
       name: "Ben 10",
       occupation: "Avengers",
       image:
         "https://ondemand.spectrum.net/static/15a6d8feb20108eb3c44bfbc2b02d756/2fda2/SH012521070000.jpg",
     },
     {
+      id: uuidv4(),
       name: "Ronaldo",
       occupation: "Footballer",
       image:
         "https://assets.realmadrid.com/is/image/realmadrid/1330603286208?$Mobile$&fit=wrap&wid=312",
     },
     {
+      id: uuidv4(),
       name: "Jerry",
       occupation: "Full Stack Developer",
       image:
@@ -66,6 +74,7 @@ function App() {
           {employers.map((employer) => {
             return (
               <Employer
+                id={employer.id}
                 name={employer.name}
                 occupation={employer.occupation}
                 image={employer.image}
