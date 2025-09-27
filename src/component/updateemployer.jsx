@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Modal = (props) => {
+const UpdateModal = (props) => {
   const [edit, setEdit] = useState(props);
   console.log(edit);
   return (
@@ -58,4 +58,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default UpdateModal;

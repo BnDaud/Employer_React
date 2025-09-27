@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "./modal";
+import UpdateModal from "./updateemployer";
 
 const Employer = (props) => {
   const [modal, setModal] = useState(false);
@@ -38,7 +38,7 @@ const Employer = (props) => {
           </button>
         </div>
         {modal ? (
-          <Modal
+          <UpdateModal
             name={details.name}
             occupation={details.occupation}
             image={details.image}

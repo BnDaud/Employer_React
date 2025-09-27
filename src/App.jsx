@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 //import viteLogo from "/vite.svg";
 import "./App.css";
 import Employer from "./component/employer";
+import Addemployer from "./component/addmodal";
 
 function App() {
   const [employers, setEmployers] = useState([
@@ -65,10 +66,25 @@ function App() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzNRVknDCVzoku5iSXaV53bU1SeVAAQ0k4rAiykVgphpvYj8H8hjTqc19aKPJBtweJSWc&usqp=CAU",
     },
   ]);
+  const [toggleModal, setToggleModal] = useState(false);
 
+  const addEmployer = (name, occupation, image) => {
+    console.log("clicked");
+    console.log(employers);
+
+    setEmployers([
+      ...employers,
+      {
+        name: name,
+        occupation: occupation,
+        image: image,
+      },
+    ]);
+    setToggleModal(!toggleModal);
+  };
   return (
     <>
-      <div className="w-screen h-screen bg-gray-200 pt-4">
+      <div className="w-screen h-screen bg-gray-200 pt-4 space-y-5">
         {" "}
         <div className="flex  gap-4 justify-center w-full flex-wrap  ">
           {employers.map((employer) => {
@@ -82,6 +98,16 @@ function App() {
             );
           })}
         </div>
+        <div className="flex justify-center">
+          <div
+            className="bg-purple-600 w-36 text-center text-white rounded-3xl px-2 py-0.5 cursor-pointer"
+            onClick={() => setToggleModal(!toggleModal)}
+          >
+            {" "}
+            Add Employer
+          </div>
+        </div>
+        {toggleModal ? <Addemployer add={addEmployer} /> : null}
       </div>
     </>
   );
