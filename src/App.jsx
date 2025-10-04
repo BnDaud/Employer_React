@@ -68,6 +68,10 @@ function App() {
   ]);
   const [toggleModal, setToggleModal] = useState(false);
 
+  const toggleModal_ = () => {
+    setToggleModal(!toggleModal);
+    set;
+  };
   const addEmployer = (name, occupation, image) => {
     console.log("clicked");
     console.log(employers);
@@ -75,6 +79,7 @@ function App() {
     setEmployers([
       ...employers,
       {
+        id: uuidv4(),
         name: name,
         occupation: occupation,
         image: image,
@@ -107,7 +112,9 @@ function App() {
             Add Employer
           </div>
         </div>
-        {toggleModal ? <Addemployer add={addEmployer} /> : null}
+        {toggleModal ? (
+          <Addemployer add={addEmployer} toggleModal_={toggleModal_} />
+        ) : null}
       </div>
     </>
   );

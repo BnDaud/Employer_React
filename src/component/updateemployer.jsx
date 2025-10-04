@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ImCancelCircle } from "react-icons/im";
 
 const UpdateModal = (props) => {
   const [edit, setEdit] = useState(props);
@@ -8,7 +9,7 @@ const UpdateModal = (props) => {
       <div className="fixed flex h-screen items-center justify-center inset-0 backdrop-blur-xs bg-gray-400/50">
         <div className="flex flex-col items-center justify-center gap-4  h-2/7 bg-white w-1/3 rounded-xl  shadow-gray-500 shadow-lg p-10 text-center">
           {" "}
-          <div className="flex gap-6">
+          <div className=" relative flex gap-6">
             <label className=""> Full Name</label>{" "}
             <input
               value={edit.name}
@@ -18,6 +19,9 @@ const UpdateModal = (props) => {
                 setEdit({ ...edit, name: e.target.value });
               }}
             />
+            <div className="absolute -right-7 -top-7">
+              <ImCancelCircle className="hover:text-red-600 text-lg" />
+            </div>
           </div>{" "}
           <div className="flex  gap-6">
             <label className=""> Occupation</label>{" "}

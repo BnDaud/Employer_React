@@ -7,8 +7,14 @@ const Addemployer = (props) => {
 
   return (
     <>
-      <div className="fixed flex h-screen items-center justify-center inset-0 backdrop-blur-xs bg-gray-400/50">
-        <div className="flex flex-col items-center justify-center gap-4  h-2/7 bg-white w-1/3 rounded-xl  shadow-gray-500 shadow-lg p-10 text-center">
+      <div
+        className="fixed flex h-screen  items-center justify-center inset-0 backdrop-blur-xs bg-gray-400/50"
+        onClick={props.toggleModal_}
+      >
+        <div
+          className="flex flex-col items-center justify-center gap-4  h-2/7 bg-white w-1/3 rounded-xl  shadow-gray-500 shadow-lg p-10 text-center"
+          onClick={(e) => e.stopPropagation()}
+        >
           {" "}
           <div className="flex gap-6">
             <label className=""> Full Name</label>{" "}
@@ -43,7 +49,7 @@ const Addemployer = (props) => {
               }}
             />
           </div>
-          <div className=" h-9 w-full text-right">
+          <div className=" h-9 w-full text-right space-x-1">
             {" "}
             <button
               className=" px-4 py-1 text-sm text-blue-600 font-semibold rounded-full border border-blue-200 hover:text-white hover:bg-blue-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
@@ -52,6 +58,12 @@ const Addemployer = (props) => {
               }}
             >
               Add Employer
+            </button>
+            <button
+              className=" px-4 py-1 text-sm text-red-600 font-semibold rounded-full border border-red-200 hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2"
+              onClick={props.toggleModal_}
+            >
+              Cancel
             </button>
           </div>
         </div>
